@@ -20,6 +20,7 @@ var docForm = document.createElement('form');
 	var inputDate = document.createElement('input');
 	inputDate.setAttribute('type', 'text');
 	inputDate.setAttribute('name','date');
+	inputDate.setAttribute('placeholder','DD/MM/YYYY');
 	docForm.insertAdjacentElement('beforeEnd', inputDate);
 
 	var inputSubmit = document.createElement('input');
@@ -53,10 +54,17 @@ function validate(e){
 		} else {
 			console.log('inputName ' + false);
 			alert("Field Name should begins with 'user_'");
-	}
+	};
+
+	var regexDate = /\S[0-9{2}]+[/]+[0-9/]{2}[/]+[0-9/]{4}/g;
+	if(regexDate.test(date)){
+		console.log("validation Date " + true)
+	} else {
+		console.log('inputDate ' + false);
+	};
 	
 
-	var currentDate = new Date().toISOString().slice(0, 10);
+	var currentDate = new Date().toLocaleDateString('en-GB');
 
 		if(date == currentDate) {
 			console.log(true);
@@ -64,6 +72,7 @@ function validate(e){
 		console.log('input Date ' + false);
 		alert('Enter current date');
 			};
+
 		console.log(age, name, date);
 		}
 
