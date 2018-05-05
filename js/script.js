@@ -2,7 +2,7 @@ var docForm = document.createElement('form');
 	docForm.setAttribute('name', 'login');
 	docForm.setAttribute('action', 'google.com');
 
-	var body = document.getElementsByTagName('body')[0];
+	var body = document.body;
 	body.appendChild(docForm); 
 
 	var inputAge = document.createElement('input');
